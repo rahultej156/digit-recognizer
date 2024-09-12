@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Upload an Image of a Digit (0-9)</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <input type="submit" value="Predict Digit">
+    </form>
+
+    {% if prediction is not none %}
+    <h2>Predicted Digit: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
